@@ -164,9 +164,7 @@
     <last-search-timestamp>1557292216856</last-search-timestamp>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5297a0be-ebd0-467c-9613-99d9d4c36a1e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
-    </list>
+    <list default="true" id="5297a0be-ebd0-467c-9613-99d9d4c36a1e" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +206,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="503">
+            <state relative-caret-position="573">
               <caret line="46" column="41" selection-start-line="46" selection-start-column="41" selection-end-line="46" selection-end-column="41" />
             </state>
           </provider>
@@ -593,7 +591,7 @@
       <window_info id="Resources Explorer" order="5" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Favorites" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Run" sideWeight="0.49946752" visible="true" weight="0.34394905" />
+      <window_info anchor="bottom" id="Run" sideWeight="0.49946752" visible="true" weight="0.20382166" />
       <window_info anchor="bottom" id="Logcat" sideWeight="0.49946752" weight="0.39596602" />
       <window_info anchor="bottom" id="Android Profiler" />
       <window_info anchor="bottom" id="Debug" />
@@ -602,7 +600,7 @@
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="TODO" order="1" />
       <window_info anchor="bottom" id="Terminal" order="2" />
-      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.5005325" side_tool="true" visible="true" weight="0.34394905" />
+      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.5005325" side_tool="true" visible="true" weight="0.20382166" />
       <window_info anchor="right" id="Device File Explorer" side_tool="true" />
       <window_info anchor="right" id="Gradle" />
       <window_info anchor="right" id="Preview" weight="0.32960597" />
@@ -743,7 +741,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
+        <state relative-caret-position="573">
           <caret line="46" column="41" selection-start-line="46" selection-start-column="41" selection-end-line="46" selection-end-column="41" />
         </state>
       </provider>
