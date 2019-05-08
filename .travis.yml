@@ -7,9 +7,9 @@ notifications:
     - suprinya.pa@centrilliontech.co.th
 
 env:
-  matrix:
-    - ANDROID_TARGET=android-19 ANDROID_ABI=armeabi-v7a
-    - ANDROID_TARGET=android-21 ANDROID_ABI=armeabi-v7a
+  #matrix:
+  # - ANDROID_TARGET=android-19 ANDROID_ABI=armeabi-v7a
+  # - ANDROID_TARGET=android-21 ANDROID_ABI=armeabi-v7a
   global:
     - ADB_INSTALL_TIMEOUT=10    #Time out to 10 mins
 
@@ -27,17 +27,17 @@ android:
   components:
     - platform-tools
     - tools
-    - build-tools-25.0.0
-    - android-25
+    - build-tools-27.0.3
+    - android-27
 
     # Additional components
-    - extra-google-google_play_services
-    - extra-google-m2repository
-    - extra-android-m2repository
+    #- extra-google-google_play_services
+    #- extra-google-m2repository
+    #- extra-android-m2repository
 
     #system images
-    - sys-img-armeabi-v7a-android-19
-    - sys-img-armeabi-v7a-android-21
+    #- sys-img-armeabi-v7a-android-19
+    #- sys-img-armeabi-v7a-android-21
 
 licenses:
   - 'android-sdk-preview-license-52d11cd2'
@@ -46,9 +46,13 @@ licenses:
 
 before_script:
   - chmod +x gradlew      #Grand permissions
-  - android list targets
-  - echo no | android create avd --force --name test --target $ANDROID_TARGET --abi $ANDROID_ABI    #Create AVD for given api
-  - emulator -avd test -no-skin -no-audio -no-window &    #Start emulator
+  #- android list targets
+  #- echo no | android create avd --force --name test --target $ANDROID_TARGET --abi $ANDROID_ABI    #Create AVD for given api
+  #- emulator -avd test -no-skin -no-audio -no-window &    #Start emulator
+  - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a -c 100M
+  - emulator -avd test -no-audio -no-window &
+  - android-wait-for-emulator
+  - adb shell input keyevent 82 &
 
 script:
   - echo "Travis branch is $TRAVIS_BRANCH"
