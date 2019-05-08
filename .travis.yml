@@ -39,7 +39,9 @@ before_script:
   - android-wait-for-emulator
   - adb shell input keyevent 82 &
 
-script: ./gradlew MainActivityTest
+script:
+  - "./gradlew assembleDebug"
+  - "./gradlew assembleDebugAndroidTest"
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
