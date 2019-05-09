@@ -165,8 +165,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5297a0be-ebd0-467c-9613-99d9d4c36a1e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -192,8 +190,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="72" column="2" selection-start-line="72" selection-start-column="2" selection-end-line="72" selection-end-column="2" />
+            <state relative-caret-position="519">
+              <caret line="75" column="35" lean-forward="true" selection-start-line="75" selection-start-column="35" selection-end-line="75" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -219,8 +217,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/test/java/io/centrilliontech/suprinya/automatedtestcidemo/ExampleUnitTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="36" selection-start-column="36" selection-end-column="55" />
+            <state relative-caret-position="391">
+              <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
               <folding>
                 <element signature="e#57#207#0" expanded="true" />
               </folding>
@@ -307,10 +305,10 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/androidTest/java/io/centrilliontech/suprinya/automatedtestcidemo/MainActivityTest.kt" />
-        <option value="$PROJECT_DIR$/app/src/test/java/io/centrilliontech/suprinya/automatedtestcidemo/ExampleUnitTest.kt" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/mock/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/api/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/test/java/io/centrilliontech/suprinya/automatedtestcidemo/ExampleUnitTest.kt" />
         <option value="$PROJECT_DIR$/.travis.yml" />
       </list>
     </option>
@@ -722,9 +720,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MainActivityTest - 2019.05.08 at 11h 52m 48s.xml">
-      <configuration name="MainActivityTest" configurationId="AndroidTestRunConfigurationType" />
-    </history-entry>
     <history-entry file="MainActivityTest - 2019.05.08 at 13h 45m 27s.xml">
       <configuration name="MainActivityTest" configurationId="AndroidTestRunConfigurationType" />
     </history-entry>
@@ -752,6 +747,9 @@
     <history-entry file="ExampleInstrumentedT___ - 2019.05.09 at 14h 36m 17s.xml">
       <configuration name="ExampleInstrumentedT..." configurationId="AndroidTestRunConfigurationType" />
     </history-entry>
+    <history-entry file="ExampleUnitTest - 2019.05.09 at 15h 06m 54s.xml">
+      <configuration name="ExampleUnitTest" configurationId="AndroidJUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="-200" y="-1057" width="1920" height="1057" extended-state="6" />
@@ -765,12 +763,12 @@
       <window_info id="Resources Explorer" order="5" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Favorites" order="7" side_tool="true" />
-      <window_info active="true" id="Build Variants" order="8" sideWeight="0.5014245" side_tool="true" visible="true" weight="0.15228967" />
+      <window_info id="Build Variants" order="8" sideWeight="0.5014245" side_tool="true" visible="true" weight="0.15228967" />
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="TODO" order="1" />
       <window_info anchor="bottom" id="Terminal" order="2" />
       <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.58998936" side_tool="true" visible="true" weight="0.25477707" />
-      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.41001064" visible="true" weight="0.25477707" />
+      <window_info active="true" anchor="bottom" id="Run" order="4" sideWeight="0.41001064" visible="true" weight="0.25477707" />
       <window_info anchor="bottom" id="Logcat" order="5" sideWeight="0.49946752" weight="0.39596602" />
       <window_info anchor="bottom" id="Android Profiler" order="6" />
       <window_info anchor="bottom" id="Debug" order="7" />
@@ -935,13 +933,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/test/java/io/centrilliontech/suprinya/automatedtestcidemo/ExampleUnitTest.kt">
+    <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="36" selection-start-column="36" selection-end-column="55" />
-          <folding>
-            <element signature="e#57#207#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-76">
+          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -952,17 +947,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
+    <entry file="file://$PROJECT_DIR$/app/src/test/java/io/centrilliontech/suprinya/automatedtestcidemo/ExampleUnitTest.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-76">
-          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+        <state relative-caret-position="391">
+          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+          <folding>
+            <element signature="e#57#207#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="72" column="2" selection-start-line="72" selection-start-column="2" selection-end-line="72" selection-end-column="2" />
+        <state relative-caret-position="519">
+          <caret line="75" column="35" lean-forward="true" selection-start-line="75" selection-start-column="35" selection-end-line="75" selection-end-column="35" />
         </state>
       </provider>
     </entry>
