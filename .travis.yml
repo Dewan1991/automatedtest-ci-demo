@@ -60,9 +60,16 @@ before_script:
 script:
   #- ./gradlew clean build
   - ./gradlew clean test
-  - ./gradlew assembleDebug
-  - ./gradlew assembleDebugAndroidTest
-  - ./gradlew generateDebugSources
-  - ./gradlew compileDebugSources
+  #- ./gradlew assembleDebug
+  - ./gradlew assembleApiDebug
+  - ./gradlew assembleMockDebug
+  - ./gradlew assembleApiDebugAndroidTest
+  - ./gradlew assembleMockDebugAndroidTest
+  - ./gradlew generateMockDebugSources
+  - ./gradlew compileMockDebugSources
   - ./gradlew createMockableJar
-  - ./gradlew compileDebugUnitTestSources
+  - ./gradlew compileMockDebugUnitTestSources
+  - ./gradlew generateApiDebugSources
+  - ./gradlew compileApiDebugSources
+  - ./gradlew createMockableJar
+  - ./gradlew compileApiDebugUnitTestSources

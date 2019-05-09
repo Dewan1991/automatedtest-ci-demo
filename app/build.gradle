@@ -27,6 +27,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    flavorDimensions "source"
+    productFlavors {
+        api {
+            dimension "source"
+            applicationId "io.centrilliontech.suprinya.automatedtestcidemoapi"
+            proguardFile 'proguard-rules.pro'
+        }
+
+        mock {
+            dimension "source"
+            applicationId "io.centrilliontech.suprinya.automatedtestcidemomock"
+            proguardFile 'proguard-rules.pro'
+        }
+    }
 }
 
 dependencies {
