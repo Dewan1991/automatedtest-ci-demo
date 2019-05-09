@@ -72,6 +72,6 @@ script:
   #- ./gradlew compileApiDebugSources
   #- ./gradlew createMockableJar
   #- ./gradlew compileApiDebugUnitTestSources
-  - ./gradlew testApiDebugUnitTest
-  - ./gradlew testMockDebugUnitTest
+  - ./gradlew testApiDebugUnitTest --stacktrace
+  - ./gradlew testMockDebugUnitTest --stacktrace
 
