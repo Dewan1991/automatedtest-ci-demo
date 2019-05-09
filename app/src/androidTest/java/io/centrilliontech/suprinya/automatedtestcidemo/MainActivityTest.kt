@@ -52,7 +52,7 @@ class MainActivityTest {
     fun testCheckRecyclerViewItem() {
         onView(withId(R.id.btnGet)).perform(click())
         onView(withRecyclerView(R.id.rcvShoes).atPosition(0))
-            .check(matches(hasDescendant(withText("ADD TO CART"))))
+            .check(matches(hasDescendant(withText("xxx"))))
     }
 
     @Test
