@@ -13,9 +13,10 @@ env:
     - ANDROID_ABI=armeabi-v7a
     - ANDROID_EMU_API_LEVEL=24
 
-  #matrix:
-    #- ANDROID_SDKS=android-19,sysimg-19  ANDROID_TARGET=android-19  ANDROID_ABI=armeabi-v7a
-    #- ANDROID_SDKS=android-27,sysimg-27  ANDROID_TARGET=android-27  ANDROID_ABI=armeabi-v7a
+  matrix:
+    - ANDROID_SDKS=android-19,sysimg-19  ANDROID_TARGET=android-19  ANDROID_ABI=armeabi-v7a
+    - ANDROID_SDKS=android-24,sysimg-24  ANDROID_TARGET=android-24  ANDROID_ABI=armeabi-v7a
+    - ANDROID_SDKS=android-27,sysimg-27  ANDROID_TARGET=android-27  ANDROID_ABI=armeabi-v7a
 
 android:
   components:
