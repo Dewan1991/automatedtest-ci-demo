@@ -1,8 +1,9 @@
 package io.centrilliontech.suprinya.automatedtestcidemo
 
+import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Test
-
-import org.junit.Assert.*
+import org.hamcrest.Matchers.`is` as _is
+import org.mockito.Mockito.`when` as _when
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -12,6 +13,13 @@ import org.junit.Assert.*
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+        assertThat(4, _is(2 + 2))
+    }
+
+    @Test
+    fun message_isCorrect() {
+        val actualMessage = "Message"
+        val expectedMessage = "Messages"
+        assertThat(actualMessage, _is(expectedMessage))
     }
 }
