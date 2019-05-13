@@ -51,7 +51,8 @@ cache:
     - $HOME/.android/build-cache
 
 after_failure:
-  - cat target/surefire-reports/*.txt
+  - >-
+    [ -f report.log ] && curl -sT report.log http://chunk.io/
 
 before_script: chmod +x gradlew
 
