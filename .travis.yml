@@ -2,10 +2,10 @@ language: android
 sudo: required
 jdk: oraclejdk8
 
-addons:
-  apt:
-    packages:
-      - lynx
+#addons:
+#  apt:
+#    packages:
+#      - lynx
 
 notifications:
   email:
@@ -81,6 +81,5 @@ jobs:
   #- ./gradlew testApiDebugUnitTest --stacktrace
   #- ./gradlew testMockDebugUnitTest --stacktrace
 
-after_failure:
-  - if [ -f /home/travis/build/Dewan1991/automatedtest-ci-demo/app/build/reports/tests/testApiDebugUnitTest/index.html ]; then lynx -dump /home/travis/build/Dewan1991/automatedtest-ci-demo/app/build/reports/tests/testApiDebugUnitTest/index.html; fi
-
+after_failure: print_surefire_reports.sh
+  #- if [ -f /home/travis/build/Dewan1991/automatedtest-ci-demo/app/build/reports/tests/testApiDebugUnitTest/index.html ]; then lynx -dump /home/travis/build/Dewan1991/automatedtest-ci-demo/app/build/reports/tests/testApiDebugUnitTest/index.html; fi
