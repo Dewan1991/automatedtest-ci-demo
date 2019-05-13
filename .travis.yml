@@ -2,6 +2,11 @@ language: android
 sudo: required
 jdk: oraclejdk8
 
+addons:
+  artifacts:
+    paths:
+      - app/build/test-results
+
 notifications:
   email:
     - suprinya.pa@centrilliontech.co.th
@@ -49,10 +54,6 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
     - $HOME/.android/build-cache
-
-after_failure:
-  - >-
-    [ -f report.log ] && curl -sT report.log http://chunk.io/
 
 before_script: chmod +x gradlew
 
