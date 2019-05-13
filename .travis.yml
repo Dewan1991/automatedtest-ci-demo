@@ -58,7 +58,15 @@ before_script:
   - android-wait-for-emulator
   - adb shell input keyevent 82 &
 
-script:
+jobs:
+  include:
+    - stage: "Tests"                                        # naming the Tests stage
+      name: "Unit Tests - API"                              # names the first Tests stage job
+      script: ./gradlew testApiDebugUnitTest --stacktrace
+    - script: ./gradlew testMockDebugUnitTest --stacktrace
+      name: "Unit Tests - MOCK"                             # names the second Tests stage job
+
+#script:
   #- ./gradlew clean test
   #- ./gradlew clean build
   #- ./gradlew assembleDebug
@@ -73,6 +81,6 @@ script:
   #- ./gradlew compileApiDebugSources
   #- ./gradlew createMockableJar
   #- ./gradlew compileApiDebugUnitTestSources
-  - ./gradlew testApiDebugUnitTest --stacktrace
-  - ./gradlew testMockDebugUnitTest --stacktrace
+  #- ./gradlew testApiDebugUnitTest --stacktrace
+  #- ./gradlew testMockDebugUnitTest --stacktrace
 
