@@ -72,8 +72,8 @@ jobs:
         - emulator -avd test -no-window &
         - android-wait-for-emulator
         - adb shell input keyevent 82 &
-    - script: ./gradlew assembleApiDebugAndroidTest --stacktrace
-      name: "Instrumentation Tests -  API"                  # names the third Tests stage job
+      script: ./gradlew connectedApiDebugAndroidTest --stacktrace
+      name: "Instrumentation Tests -  API - MainActivity"   # names the third Tests stage job
 
 
 #script:
