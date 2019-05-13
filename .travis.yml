@@ -81,5 +81,7 @@ jobs:
   #- ./gradlew testApiDebugUnitTest --stacktrace
   #- ./gradlew testMockDebugUnitTest --stacktrace
 
-after_failure: print_surefire_reports.sh
+after_failure:
+  - adb logcat -d > logcat.txt
+  - echo "$(cat logcat.txt)"
   #- if [ -f /home/travis/build/Dewan1991/automatedtest-ci-demo/app/build/reports/tests/testApiDebugUnitTest/index.html ]; then lynx -dump /home/travis/build/Dewan1991/automatedtest-ci-demo/app/build/reports/tests/testApiDebugUnitTest/index.html; fi
