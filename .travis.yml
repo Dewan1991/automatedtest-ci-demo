@@ -2,10 +2,10 @@ language: android
 sudo: required
 jdk: oraclejdk8
 
-#addons:
-#  apt:
-#    packages:
-#      - lynx
+addons:
+  apt:
+    packages:
+      - lynx
 
 notifications:
   email:
@@ -18,7 +18,7 @@ env:
     - ANDROID_ABI=armeabi-v7a
     - ANDROID_EMU_API_LEVEL=22
 
-  #matrix:
+    #matrix:
     #- ANDROID_SDKS=android-19,sysimg-19  ANDROID_TARGET=android-19  ANDROID_ABI=armeabi-v7a
     #- ANDROID_SDKS=android-24,sysimg-24  ANDROID_TARGET=android-24  ANDROID_ABI=armeabi-v7a
     #- ANDROID_SDKS=android-27,sysimg-27  ANDROID_TARGET=android-27  ANDROID_ABI=armeabi-v7a
@@ -62,8 +62,8 @@ jobs:
     - stage: "Tests"                                        # naming the Tests stage
       name: "Unit Tests - API"                              # names the first Tests stage job
       script: ./gradlew testApiDebugUnitTest --stacktrace
-#    - script: ./gradlew testMockDebugUnitTest --stacktrace
-#      name: "Unit Tests - MOCK"                             # names the second Tests stage job
+    - script: ./gradlew testMockDebugUnitTest --stacktrace
+      name: "Unit Tests - MOCK"                             # names the second Tests stage job
 #    - before_script:
 #        - android list targets
 #        - echo no | android create avd --force -n test -t android-$ANDROID_EMU_API_LEVEL --abi $ANDROID_ABI -c 100M
@@ -73,7 +73,7 @@ jobs:
 #      script: ./gradlew connectedApiDebugAndroidTest --stacktrace
 #      name: "Instrumentation Tests -  API - MainActivity"   # names the third Tests stage job
 
-#script:
+  #script:
   #- ./gradlew clean test
   #- ./gradlew clean build
   #- ./gradlew connectedApiDebugAndroidTest
@@ -82,6 +82,4 @@ jobs:
   #- ./gradlew testMockDebugUnitTest --stacktrace
 
 after_failure:
-  - adb logcat -d > logcat.txt
-  - echo "$(cat logcat.txt)"
-  #- if [ -f /home/travis/build/Dewan1991/automatedtest-ci-demo/app/build/reports/tests/testApiDebugUnitTest/index.html ]; then lynx -dump /home/travis/build/Dewan1991/automatedtest-ci-demo/app/build/reports/tests/testApiDebugUnitTest/index.html; fi
+  - if [ -f /home/travis/build/Dewan1991/automatedtest-ci-demo/app/build/reports/tests/testApiDebugUnitTest/index.html ]; then lynx -dump /home/travis/build/Dewan1991/automatedtest-ci-demo/app/build/reports/tests/testApiDebugUnitTest/index.html; fi
