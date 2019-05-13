@@ -82,4 +82,4 @@ jobs:
   #- ./gradlew testMockDebugUnitTest --stacktrace
 
 after_failure:
-  - if [ -f /home/travis/build/Dewan1991/automatedtest-ci-demo/app/build/reports/tests/testApiDebugUnitTest/index.html ]; then lynx -dump /home/travis/build/Dewan1991/automatedtest-ci-demo/app/build/reports/tests/testApiDebugUnitTest/index.html; fi
+  - if [ -f /home/travis/build/Dewan1991/automatedtest-ci-demo/app/build/reports/tests/*/index.html ]; then lynx -dump /home/travis/build/Dewan1991/automatedtest-ci-demo/app/build/reports/tests/*/index.html; fi
