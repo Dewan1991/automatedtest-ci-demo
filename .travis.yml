@@ -76,7 +76,3 @@ jobs:
   #- ./gradlew testApiDebugUnitTest --stacktrace
   #- ./gradlew testMockDebugUnitTest --stacktrace
 
-after_failure:
-  - if [ -f tests/tests.log ]; then cat tests/tests.log; fi
-  - echo == End of test log ==
-
