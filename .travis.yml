@@ -64,14 +64,14 @@ jobs:
       script: ./gradlew testApiDebugUnitTest --stacktrace
     - script: ./gradlew testMockDebugUnitTest --stacktrace
       name: "Unit Tests - MOCK"                             # names the second Tests stage job
-#    - before_script:
-#        - android list targets
-#        - echo no | android create avd --force -n test -t android-$ANDROID_EMU_API_LEVEL --abi $ANDROID_ABI -c 100M
-#        - emulator -avd test -no-audio -no-window &
-#        - android-wait-for-emulator
-#        - adb shell input keyevent 82 &
-#      script: ./gradlew connectedApiDebugAndroidTest --stacktrace
-#      name: "Instrumentation Tests -  API - MainActivity"   # names the third Tests stage job
+    - before_script:
+        - android list targets
+        - echo no | android create avd --force -n test -t android-$ANDROID_EMU_API_LEVEL --abi $ANDROID_ABI -c 100M
+        - emulator -avd test -no-audio -no-window &
+        - android-wait-for-emulator
+        - adb shell input keyevent 82 &
+      script: ./gradlew connectedApiDebugAndroidTest --stacktrace
+      name: "Instrumentation Tests -  API - MainActivity"   # names the third Tests stage job
 
   #script:
   #- ./gradlew clean test
