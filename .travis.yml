@@ -65,25 +65,25 @@ jobs:
     - stage: "Tests"                                        # naming the Tests stage
       name: "Unit Tests - API"                              # names the first Tests stage job
       script: ./gradlew testApiDebugUnitTest --stacktrace
-#    - script: ./gradlew testMockDebugUnitTest --stacktrace
-#      name: "Unit Tests - MOCK"                             # names the second Tests stage job
-#    - before_script:
-#        - android list targets
-#        - echo no | android create avd --force -n test -t android-$ANDROID_EMU_API_LEVEL --abi $ANDROID_ABI -c 100M
-#        - emulator -avd test -no-audio -no-window &
-#        - android-wait-for-emulator
-#        - adb shell input keyevent 82 &
-#      script: ./gradlew connectedApiDebugAndroidTest --stacktrace
-#      name: "Instrumentation Tests -  API - MainActivity"   # names the third Tests stage job
-    - script:
+    #    - script: ./gradlew testMockDebugUnitTest --stacktrace
+    #      name: "Unit Tests - MOCK"                             # names the second Tests stage job
+    #    - before_script:
+    #        - android list targets
+    #        - echo no | android create avd --force -n test -t android-$ANDROID_EMU_API_LEVEL --abi $ANDROID_ABI -c 100M
+    #        - emulator -avd test -no-audio -no-window &
+    #        - android-wait-for-emulator
+    #        - adb shell input keyevent 82 &
+    #      script: ./gradlew connectedApiDebugAndroidTest --stacktrace
+    #      name: "Instrumentation Tests -  API - MainActivity"   # names the third Tests stage job
+    - before_script:
         - gcloud version || true
         - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf $HOME/google-cloud-sdk; export CLOUDSDK_CORE_DISABLE_PROMPTS=1; curl https://sdk.cloud.google.com | bash; fi
         # Add gcloud to $PATH
         - source /home/travis/google-cloud-sdk/path.bash.inc
         - gcloud version
-        - gcloud firebase test android run --app app/build/outputs/apk/debug/app-debug.apk --type=robo --device model=Nexus4,version=19
         # Add gcloud auth
         - gcloud auth activate-service-account firebase-adminsdk-iwoq0@automatedtest-ci-demo.iam.gserviceaccount.com --key-file=automatedtest-ci-demo-firebase-adminsdk-iwoq0-659c2cbb4f.json --project=automatedtest-ci-demo
+      script: gcloud firebase test android run --app app/build/outputs/apk/debug/app-debug.apk --type=robo --device model=Nexus4,version=19
       name: "Firebase Test Lab - Instrumentation Tests"
 
   #script:
