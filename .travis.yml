@@ -88,7 +88,7 @@ jobs:
       script:
         - ./gradlew clean build
         - ./gradlew connectedMockDebugAndroidTest
-        - gcloud firebase test android run --type instrumentation --app app/build/outputs/apk/mock/debug/app-mock-debug.apk --test app/build/outputs/apk/androidTest/mock/debug/app-mock-debug-androidTest.apk --device model=Nexus4,version=19
+        - gcloud firebase test android run --type instrumentation --app app/build/outputs/apk/mock/debug/app-mock-debug.apk --test app/build/outputs/apk/androidTest/mock/debug/app-mock-debug-androidTest.apk --device model=Pixel,version=26
 
       name: "Firebase Test Lab - Instrumentation Tests"
 
