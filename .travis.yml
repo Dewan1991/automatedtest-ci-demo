@@ -17,7 +17,6 @@ env:
     - ANDROID_BUILD_TOOLS_VERSION=28.0.3
     - ANDROID_ABI=armeabi-v7a
     - ANDROID_EMU_API_LEVEL=22
-    - CLOUD_PROJECT_ID=automatedtest-ci-demo
 
     #matrix:
     #- ANDROID_SDKS=android-19,sysimg-19  ANDROID_TARGET=android-19  ANDROID_ABI=armeabi-v7a
@@ -42,7 +41,6 @@ android:
     - 'google-gdk-license-.+'
 
 before_install:
-  - openssl aes-256-cbc -K $encrypted_2e23d3804d07_key -iv $encrypted_2e23d3804d07_iv -in automatedtest-ci-demo-firebase-adminsdk-iwoq0-659c2cbb4f.json.enc -out automatedtest-ci-demo-firebase-adminsdk-iwoq0-659c2cbb4f.json -d
   - touch $HOME/.android/repositories.cfg
   - yes | sdkmanager "platforms;android-28"
   - yes | sdkmanager "build-tools;28.0.3"
@@ -56,10 +54,8 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
     - $HOME/.android/build-cache
-    - $HOME/google-cloud-sdk/
 
-before_script:
-  - chmod +x gradlew
+before_script: chmod +x gradlew
 
 jobs:
   include:
@@ -75,11 +71,15 @@ jobs:
         - android-wait-for-emulator
         - adb shell input keyevent 82 &
       script: ./gradlew connectedApiDebugAndroidTest --stacktrace
-      name: "Instrumentation Tests -  API - MainActivity"
-    - script: gcloud firebase test android run --app app/build/outputs/apk/debug/app-debug.apk --type=robo --device model=Nexus4,version=19
-      name: "Firebase Test Lab - Instrumentation Tests"
+      name: "Instrumentation Tests -  API - MainActivity"   # names the third Tests stage job
+
+  #script:
+  #- ./gradlew clean test
+  #- ./gradlew clean build
+  #- ./gradlew connectedApiDebugAndroidTest
+  #- ./gradlew connectedMockDebugAndroidTest
+  #- ./gradlew testApiDebugUnitTest --stacktrace
+  #- ./gradlew testMockDebugUnitTest --stacktrace
 
 after_failure:
-  - if [ -f /home/travis/build/Dewan1991/automatedtest-ci-demo/app/build/reports/tests/*/index.html
-  ]; then lynx -dump /home/travis/build/Dewan1991/automatedtest-ci-demo/app/build/reports/tests/*/index.html;
-  fi
+  - if [ -f /home/travis/build/Dewan1991/automatedtest-ci-demo/app/build/reports/tests/*/index.html ]; then lynx -dump /home/travis/build/Dewan1991/automatedtest-ci-demo/app/build/reports/tests/*/index.html; fi
