@@ -84,11 +84,13 @@ jobs:
         - gcloud version
         # Add gcloud auth
         - gcloud auth activate-service-account firebase-adminsdk-iwoq0@automatedtest-ci-demo.iam.gserviceaccount.com --key-file=automatedtest-ci-demo-firebase-adminsdk-iwoq0-659c2cbb4f.json --project=automatedtest-ci-demo
+        # Add gcloud services enable
         - gcloud services enable toolresults.googleapis.com
       script:
         - ./gradlew clean build
-        - ./gradlew connectedMockDebugAndroidTest
-        - gcloud firebase test android run --type instrumentation --app app/build/outputs/apk/mock/debug/app-mock-debug.apk --test app/build/outputs/apk/androidTest/mock/debug/app-mock-debug-androidTest.apk --device model=Pixel,version=26
+        - ./gradlew assembleMockDebug
+        - ./gradlew assembleMockDebugAndroidTest
+        - gcloud firebase test android run --type instrumentation --app app/build/outputs/apk/mock/debug/app-mock-debug.apk --test app/build/outputs/apk/androidTest/mock/debug/app-mock-debug-androidTest.apk --device model=Nexus,version=24
 
       name: "Firebase Test Lab - Instrumentation Tests"
 
