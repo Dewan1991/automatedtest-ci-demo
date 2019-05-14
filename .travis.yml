@@ -42,10 +42,10 @@ android:
     - 'google-gdk-license-.+'
 
 before_install:
+  - openssl aes-256-cbc -K $encrypted_2e23d3804d07_key -iv $encrypted_2e23d3804d07_iv -in automatedtest-ci-demo-firebase-adminsdk-iwoq0-659c2cbb4f.json.enc -out automatedtest-ci-demo-firebase-adminsdk-iwoq0-659c2cbb4f.json -d
   - touch $HOME/.android/repositories.cfg
   - yes | sdkmanager "platforms;android-28"
   - yes | sdkmanager "build-tools;28.0.3"
-  - openssl aes-256-cbc -K $encrypted_58c96f0a0494_key -iv $encrypted_58c96f0a0494_iv -in github-stars-1f51a-firebase-adminsdk-x55vy-63ae8ea950.json.enc -out key.json -d
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -60,14 +60,6 @@ cache:
 
 before_script:
   - chmod +x gradlew
-  # gcloud
-  - gcloud version || true
-  - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf $HOME/google-cloud-sdk; export $CLOUDSDK_CORE_DISABLE_PROMPTS; curl https://sdk.cloud.google.com | bash; fi
-  # Add gcloud to $PATH
-  - source /home/travis/google-cloud-sdk/path.bash.inc
-  - gcloud version
-  # Add gcloud auth
-  - gcloud auth activate-service-account firebase-adminsdk-x55vy@github-stars-1f51a.iam.gserviceaccount.com --key-file=key.json --project=github-stars-1f51a
 
 jobs:
   include:
@@ -76,22 +68,18 @@ jobs:
       script: ./gradlew testApiDebugUnitTest --stacktrace
     - script: ./gradlew testMockDebugUnitTest --stacktrace
       name: "Unit Tests - MOCK"                             # names the second Tests stage job
-    - before_script:
-        - android list targets
-        - echo no | android create avd --force -n test -t android-$ANDROID_EMU_API_LEVEL --abi $ANDROID_ABI -c 100M
-        - emulator -avd test -no-audio -no-window &
-        - android-wait-for-emulator
-        - adb shell input keyevent 82 &
-      script: ./gradlew connectedApiDebugAndroidTest --stacktrace
-      name: "Instrumentation Tests -  API - MainActivity"   # names the third Tests stage job
-
-  #script:
-  #- ./gradlew clean test
-  #- ./gradlew clean build
-  #- ./gradlew connectedApiDebugAndroidTest
-  #- ./gradlew connectedMockDebugAndroidTest
-  #- ./gradlew testApiDebugUnitTest --stacktrace
-  #- ./gradlew testMockDebugUnitTest --stacktrace
+#    - before_script:
+#        - android list targets
+#        - echo no | android create avd --force -n test -t android-$ANDROID_EMU_API_LEVEL --abi $ANDROID_ABI -c 100M
+#        - emulator -avd test -no-audio -no-window &
+#        - android-wait-for-emulator
+#        - adb shell input keyevent 82 &
+#      script: ./gradlew connectedApiDebugAndroidTest --stacktrace
+#      name: "Instrumentation Tests -  API - MainActivity"
+    - script: gcloud firebase test android run --app app/build/outputs/apk/debug/app-debug.apk --type=robo --device model=Nexus4,version=19
+      name: "Firebase Test Lab - Instrumentation Tests"
 
 after_failure:
-  - if [ -f /home/travis/build/Dewan1991/automatedtest-ci-demo/app/build/reports/tests/*/index.html ]; then lynx -dump /home/travis/build/Dewan1991/automatedtest-ci-demo/app/build/reports/tests/*/index.html; fi
+  - if [ -f /home/travis/build/Dewan1991/automatedtest-ci-demo/app/build/reports/tests/*/index.html
+  ]; then lynx -dump /home/travis/build/Dewan1991/automatedtest-ci-demo/app/build/reports/tests/*/index.html;
+  fi
