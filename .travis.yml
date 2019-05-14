@@ -55,6 +55,8 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
     - $HOME/.android/build-cache
+    - $HOME/google-cloud-sdk/
+install: true
 
 before_script: chmod +x gradlew
 
@@ -74,7 +76,11 @@ jobs:
 #      script: ./gradlew connectedApiDebugAndroidTest --stacktrace
 #      name: "Instrumentation Tests -  API - MainActivity"   # names the third Tests stage job
     - script:
-        - gcloud components update
+        - gcloud version || true
+        - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf $HOME/google-cloud-sdk; export CLOUDSDK_CORE_DISABLE_PROMPTS=1; curl https://sdk.cloud.google.com | bash; fi
+        # Add gcloud to $PATH
+        - source /home/travis/google-cloud-sdk/path.bash.inc
+        - gcloud version
         - gcloud firebase test android run --app app/build/outputs/apk/debug/app-debug.apk --type=robo --device model=Nexus4,version=19
       name: "Firebase Test Lab - Instrumentation Tests"
 
