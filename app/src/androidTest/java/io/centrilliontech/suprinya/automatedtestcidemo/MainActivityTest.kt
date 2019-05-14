@@ -41,8 +41,14 @@ class MainActivityTest {
         onView(withId(R.id.btnGet)).perform(click())
     }
 
-
     @Test
+    fun testCheckRecyclerViewItem() {
+        onView(withId(R.id.btnGet)).perform(click())
+        onView(withRecyclerView(R.id.rcvShoes).atPosition(0))
+                .check(matches(hasDescendant(withText("ADD TO CART"))))
+    }
+
+    /*@Test
     fun testClickRecyclerViewItem() {
         onView(withId(R.id.btnGet)).perform(click())
         onView(withRecyclerView(R.id.rcvShoes).atPosition(1)).perform(click())
@@ -53,7 +59,7 @@ class MainActivityTest {
         onView(withId(R.id.btnGet)).perform(click())
         onView(withRecyclerView(R.id.rcvShoes).atPosition(0))
             .check(matches(hasDescendant(withText("ADD TO CART"))))
-    }
+    }*/
 
     /*@Test
     @Throws(Exception::class)
