@@ -190,8 +190,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="91" column="276" selection-start-line="91" selection-start-column="276" selection-end-line="91" selection-end-column="276" />
+            <state relative-caret-position="454">
+              <caret line="91" column="229" selection-start-line="91" selection-start-column="229" selection-end-line="91" selection-end-column="229" />
             </state>
           </provider>
         </entry>
@@ -199,11 +199,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/io/centrilliontech/suprinya/automatedtestcidemo/MainActivityTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="50" column="37" lean-forward="true" selection-start-line="50" selection-start-column="37" selection-end-line="50" selection-end-column="37" />
-              <folding>
-                <element signature="e#57#547#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-263">
+              <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -378,7 +375,7 @@
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Properties" />
-    <property name="device.picker.selection" value="Nexus_5X_API_24" />
+    <property name="device.picker.selection" value="ce11171ba538bd3304" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="not.eligible.for.single.variant.sync" value="true" />
     <property name="options.lastSelected" value="settings.github" />
@@ -641,23 +638,23 @@
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.7986111" visible="true" weight="0.1368477" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.7995227" visible="true" weight="0.12300319" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
       <window_info id="Resources Explorer" order="5" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Favorites" order="7" side_tool="true" />
-      <window_info id="Build Variants" order="8" sideWeight="0.2013889" side_tool="true" visible="true" weight="0.1368477" />
+      <window_info id="Build Variants" order="8" sideWeight="0.20047733" side_tool="true" visible="true" weight="0.12300319" />
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="TODO" order="1" />
       <window_info anchor="bottom" id="Terminal" order="2" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="3" sideWeight="0.86528224" side_tool="true" visible="true" weight="0.08280255" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="3" sideWeight="0.8780618" side_tool="true" visible="true" weight="0.110403396" />
       <window_info anchor="bottom" id="Run" order="4" sideWeight="0.48402557" weight="0.25477707" />
       <window_info anchor="bottom" id="Logcat" order="5" sideWeight="0.49946752" weight="0.39596602" />
       <window_info anchor="bottom" id="Android Profiler" order="6" show_stripe_button="false" />
       <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.49946752" weight="0.32908705" />
-      <window_info anchor="bottom" id="Build" order="8" sideWeight="0.13471779" visible="true" weight="0.08280255" />
+      <window_info anchor="bottom" id="Build" order="8" sideWeight="0.12193823" visible="true" weight="0.110403396" />
       <window_info anchor="bottom" id="Find" order="9" sideWeight="0.49946752" weight="0.32908705" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Theme Preview" order="1" />
@@ -829,18 +826,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/io/centrilliontech/suprinya/automatedtestcidemo/MainActivityTest.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="50" column="37" lean-forward="true" selection-start-line="50" selection-start-column="37" selection-end-line="50" selection-end-column="37" />
-          <folding>
-            <element signature="e#57#547#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-263">
+          <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="91" column="276" selection-start-line="91" selection-start-column="276" selection-end-line="91" selection-end-column="276" />
+        <state relative-caret-position="454">
+          <caret line="91" column="229" selection-start-line="91" selection-start-column="229" selection-end-line="91" selection-end-column="229" />
         </state>
       </provider>
     </entry>
