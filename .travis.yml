@@ -90,7 +90,7 @@ jobs:
         - ./gradlew assembleMockDebug
         - ./gradlew assembleMockDebugAndroidTest
         #- gcloud firebase test android run --type instrumentation --app app/build/outputs/apk/mock/debug/app-mock-debug.apk --test app/build/outputs/apk/androidTest/mock/debug/app-mock-debug-androidTest.apk --device model=NexusLowRes,version=26
-        - gcloud firebase test android run --type robo --app app/build/outputs/apk/mock/debug/app-mock-debug.apk --device model=NexusLowRes,version=27
+        - gcloud firebase test android run --type robo --app app/build/outputs/apk/mock/debug/app-mock-debug.apk --device model=NexusLowRes,version=28
       name: "Firebase Test Lab - Instrumentation Tests"
 
   #script:
