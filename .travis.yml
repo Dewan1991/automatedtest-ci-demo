@@ -89,8 +89,8 @@ jobs:
       script:
         - ./gradlew assembleMockDebug
         - ./gradlew assembleMockDebugAndroidTest
-        #- gcloud firebase test android run --type instrumentation --app app/build/outputs/apk/mock/debug/app-mock-debug.apk --test app/build/outputs/apk/androidTest/mock/debug/app-mock-debug-androidTest.apk --device model=NexusLowRes,version=26
-        - gcloud firebase test android run --type robo --app app/build/outputs/apk/mock/debug/app-mock-debug.apk --device model=NexusLowRes,version=28 --device model=NexusLowRes,version=25 --device model=shamu,version=21
+        - gcloud firebase test android run --type instrumentation --app app/build/outputs/apk/mock/debug/app-mock-debug.apk --test app/build/outputs/apk/androidTest/mock/debug/app-mock-debug-androidTest.apk --device-ids=shamu,NexusLowRes,Nexus5,g3,zeroflte --os-version-ids=21,22,23,24,25
+        #- gcloud firebase test android run --type robo --app app/build/outputs/apk/mock/debug/app-mock-debug.apk --device model=NexusLowRes,version=28 --device model=NexusLowRes,version=25 --device model=shamu,version=21
       name: "Firebase Test Lab - Instrumentation Tests"
 
   #script:
