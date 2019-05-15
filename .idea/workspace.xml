@@ -190,8 +190,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="91" column="215" selection-start-line="91" selection-start-column="209" selection-end-line="91" selection-end-column="215" />
+            <state relative-caret-position="497">
+              <caret line="92" column="151" lean-forward="true" selection-start-line="92" selection-start-column="151" selection-end-line="92" selection-end-column="151" />
             </state>
           </provider>
         </entry>
@@ -199,8 +199,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/io/centrilliontech/suprinya/automatedtestcidemo/MainActivityTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="34" column="69" lean-forward="true" selection-start-line="34" selection-start-column="69" selection-end-line="34" selection-end-column="69" />
+            <state relative-caret-position="460">
+              <caret line="51" column="44" selection-start-line="51" selection-start-column="44" selection-end-line="51" selection-end-column="44" />
               <folding>
                 <element signature="e#57#547#0" expanded="true" />
               </folding>
@@ -248,11 +248,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-200" />
-    <option name="y" value="-1057" />
-    <option name="width" value="1920" />
-    <option name="height" value="1057" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -260,7 +259,52 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="automatedtest-ci-demo" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="automatedtest-ci-demo" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="automatedtest-ci-demo" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="io" type="cbb59c9e:AndroidPsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="automatedtest-ci-demo" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="io" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="centrilliontech" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="automatedtest-ci-demo" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="io" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="centrilliontech" type="462c0819:PsiDirectoryNode" />
+              <item name="suprinya" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="automatedtest-ci-demo" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="io" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="centrilliontech" type="462c0819:PsiDirectoryNode" />
+              <item name="suprinya" type="462c0819:PsiDirectoryNode" />
+              <item name="automatedtestcidemo" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -592,27 +636,27 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-200" y="-1057" width="1920" height="1057" extended-state="0" />
+    <frame x="0" y="23" width="1920" height="1057" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.79899496" visible="true" weight="0.106496274" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.7986111" visible="true" weight="0.1368477" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
       <window_info id="Resources Explorer" order="5" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Favorites" order="7" side_tool="true" />
-      <window_info id="Build Variants" order="8" sideWeight="0.20100503" side_tool="true" visible="true" weight="0.106496274" />
+      <window_info id="Build Variants" order="8" sideWeight="0.2013889" side_tool="true" visible="true" weight="0.1368477" />
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="TODO" order="1" />
       <window_info anchor="bottom" id="Terminal" order="2" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="3" sideWeight="0.86528224" side_tool="true" visible="true" weight="0.15498939" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="3" sideWeight="0.86528224" side_tool="true" visible="true" weight="0.08280255" />
       <window_info anchor="bottom" id="Run" order="4" sideWeight="0.48402557" weight="0.25477707" />
       <window_info anchor="bottom" id="Logcat" order="5" sideWeight="0.49946752" weight="0.39596602" />
       <window_info anchor="bottom" id="Android Profiler" order="6" show_stripe_button="false" />
       <window_info anchor="bottom" id="Debug" order="7" sideWeight="0.49946752" weight="0.32908705" />
-      <window_info anchor="bottom" id="Build" order="8" sideWeight="0.13471779" visible="true" weight="0.15498939" />
+      <window_info anchor="bottom" id="Build" order="8" sideWeight="0.13471779" visible="true" weight="0.08280255" />
       <window_info anchor="bottom" id="Find" order="9" sideWeight="0.49946752" weight="0.32908705" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Theme Preview" order="1" />
@@ -784,8 +828,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/io/centrilliontech/suprinya/automatedtestcidemo/MainActivityTest.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="34" column="69" lean-forward="true" selection-start-line="34" selection-start-column="69" selection-end-line="34" selection-end-column="69" />
+        <state relative-caret-position="460">
+          <caret line="51" column="44" selection-start-line="51" selection-start-column="44" selection-end-line="51" selection-end-column="44" />
           <folding>
             <element signature="e#57#547#0" expanded="true" />
           </folding>
@@ -794,8 +838,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="91" column="215" selection-start-line="91" selection-start-column="209" selection-end-line="91" selection-end-column="215" />
+        <state relative-caret-position="497">
+          <caret line="92" column="151" lean-forward="true" selection-start-line="92" selection-start-column="151" selection-end-line="92" selection-end-column="151" />
         </state>
       </provider>
     </entry>
