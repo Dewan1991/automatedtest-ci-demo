@@ -70,8 +70,8 @@ before_script: chmod +x gradlew
 jobs:
   include:
     - stage: "Tests"                                        # naming the Tests stage
-      name: "Unit Tests - API"                              # names the first Tests stage job
-      script: ./gradlew testApiDebugUnitTest --stacktrace
+      name: "Unit Tests"                              # names the first Tests stage job
+      script: ./gradlew test$BUILD_FLAVOR_UPPERDebugUnitTest --stacktrace
     #    - script: ./gradlew testMockDebugUnitTest --stacktrace
     #      name: "Unit Tests - MOCK"                             # names the second Tests stage job
     #    - before_script:
@@ -94,8 +94,8 @@ jobs:
         # Add gcloud services enable
         - gcloud services enable toolresults.googleapis.com
       script:
-        - ./gradlew assemble$BUILD_FLAVORDebug
-        - ./gradlew assemble$BUILD_FLAVORDebugAndroidTest
+        - ./gradlew assemble$BUILD_FLAVOR_UPPERDebug
+        - ./gradlew assemble$BUILD_FLAVOR_UPPERDebugAndroidTest
         - gcloud firebase test android run --type instrumentation --app app/build/outputs/apk/$BUILD_FLAVOR/debug/app-$BUILD_FLAVOR-debug.apk --test app/build/outputs/apk/androidTest/$BUILD_FLAVOR/debug/app-$BUILD_FLAVOR-debug-androidTest.apk --device model=$FIREBASE_DEVICE_MODEL,version=$FIREBASE_DEVICE_VERSION
       name: "Firebase Test Lab - Instrumentation Tests"
 
