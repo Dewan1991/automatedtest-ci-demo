@@ -95,8 +95,8 @@ jobs:
         - gcloud services enable toolresults.googleapis.com
       script:
         - ./gradlew assemble$BUILD_FLAVOR_UPPERDebug
-        - ./gradlew assemble$BUILD_FLAVOR_UPPERDebugAndroidTest
-        - gcloud firebase test android run --type instrumentation --app app/build/outputs/apk/$BUILD_FLAVOR/debug/app-$BUILD_FLAVOR-debug.apk --test app/build/outputs/apk/androidTest/$BUILD_FLAVOR/debug/app-$BUILD_FLAVOR-debug-androidTest.apk --device model=$FIREBASE_DEVICE_MODEL,version=$FIREBASE_DEVICE_VERSION
+        - ./gradlew assembleApiDebugAndroidTest
+        - gcloud firebase test android run --type instrumentation --app app/build/outputs/apk/$BUILD_FLAVOR/debug/app-$BUILD_FLAVOR-debug.apk --test app/build/outputs/apk/androidTest/api/debug/app-api-debug-androidTest.apk --device model=$FIREBASE_DEVICE_MODEL,version=$FIREBASE_DEVICE_VERSION
       name: "Firebase Test Lab - Instrumentation Tests"
 
   #script:
