@@ -52,7 +52,7 @@ before_install:
   - yes | sdkmanager "platforms;android-$ANDROID_API_LEVEL"
   - yes | sdkmanager "build-tools;$ANDROID_BUILD_TOOLS_VERSION"
   - gem update --system
-  - gem install fastlane --no-rdoc --no-ri --no-document --quiet
+  - gem install fastlane -NV
   - pip install --user awscli
 
 before_cache:
