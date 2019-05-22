@@ -23,7 +23,7 @@ env:
     - FIREBASE_SERVICE_ACCOUNT=firebase-adminsdk-iwoq0@automatedtest-ci-demo.iam.gserviceaccount.com
     - FIREBASE_DEVICE_MODEL=NexusLowRes
     - FIREBASE_DEVICE_VERSION=26
-    - AWS_USERNAME=ct-android-ci-cd-test
+    - AWS_BUCKET_NAME=ct-android-ci-cd-test
 
     #matrix:
     #- ANDROID_SDKS=android-19,sysimg-19  ANDROID_TARGET=android-19  ANDROID_ABI=armeabi-v7a
@@ -104,9 +104,9 @@ jobs:
         #      name: "Firebase Test Lab - Instrumentation Tests"
     - script:
         - ./configure_aws.sh
-        - aws s3 cp s3://$AWS_USERNAME/keystore.jks keystore.jks
+        - aws s3 cp s3://$AWS_BUCKET_NAME/keystore.jks keystore.jks
         - ls
-        - fastlane alpha KEYSTORE_ALIAS:$KEYSTORE_ALIAS  KEYSTORE_PASSWORD:$KEYSTORE_PASSWORD KEYSTORE_ALIAS_PASSWORD:$KEYSTORE_ALIAS_PASSWORD;
+        - bundle exec fastlane alpha KEYSTORE_ALIAS:$KEYSTORE_ALIAS  KEYSTORE_PASSWORD:$KEYSTORE_PASSWORD KEYSTORE_ALIAS_PASSWORD:$KEYSTORE_ALIAS_PASSWORD;
       name: "Run Fastlane - Builds and release alpha"
   #    - script: fastlane test
   #      name: "Run Fastlane - test"

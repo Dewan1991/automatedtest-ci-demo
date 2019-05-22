@@ -103,6 +103,11 @@ android {
             exceptionFormat "full"
         }
     }
+    signingConfigs {
+        release {
+            storeFile rootProject.file("keystore.jks/release.keystore")
+        }
+    }
 }
 
 dependencies {
