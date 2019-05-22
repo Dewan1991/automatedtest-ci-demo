@@ -106,7 +106,7 @@ jobs:
         - ./configure_aws.sh
         - aws s3 cp s3://$AWS_BUCKET_NAME/keystore.jks keystore.jks
         - ls
-        - bundle exec fastlane alpha KEYSTORE_ALIAS:$KEYSTORE_ALIAS  KEYSTORE_PASSWORD:$KEYSTORE_PASSWORD KEYSTORE_ALIAS_PASSWORD:$KEYSTORE_ALIAS_PASSWORD;
+        - fastlane alpha KEYSTORE_ALIAS:$KEYSTORE_ALIAS  KEYSTORE_PASSWORD:$KEYSTORE_PASSWORD KEYSTORE_ALIAS_PASSWORD:$KEYSTORE_ALIAS_PASSWORD;
       name: "Run Fastlane - Builds and release alpha"
   #    - script: fastlane test
   #      name: "Run Fastlane - test"
