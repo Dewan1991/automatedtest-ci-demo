@@ -9,15 +9,71 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 28
     buildToolsVersion "28.0.3"
-    defaultConfig {
-        applicationId "io.centrilliontech.suprinya"
-        minSdkVersion 15
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        multiDexEnabled true
+    def versionPropsFile = file('version.properties')
+    if (versionPropsFile.canRead()) {
+        Properties versionProps = new Properties()
+
+        versionProps.load(new FileInputStream(versionPropsFile))
+
+        /*def value = 0
+        def runTasks = gradle.startParameter.taskNames
+        if ('assemble' in runTasks || 'assembleRelease' in runTasks || 'aR' in runTasks) {
+            value = 1
+        }*/
+
+        def versionMajor = 1
+        def versionMinor = 0
+        def versionBugFixes = 0
+
+        def versionBuild = versionProps['VERSION_BUILD'].toInteger() + 1
+
+        if (versionBuild > 99) {
+            throw new GradleException("Your Build Version must be lower than 99!")
+        }
+
+        def versionStringName = "${versionMajor}.${versionMinor}.${versionBugFixes}"
+
+        versionMinor = versionMinor.toString().padLeft( 2, '0' )
+        versionBuild = versionBuild.toString().padLeft( 2, '0' )
+        versionBugFixes = versionBugFixes.toString().padLeft( 2, '0' )
+        versionBuild = versionBuild.toString().padLeft( 2, '0' )
+
+        def versionNumber = "${versionMajor}${versionMinor}${versionBugFixes}${versionBuild}".toInteger()
+
+        versionProps['VERSION_MAJOR'] = versionMajor.toString()
+        versionProps['VERSION_MINOR'] = versionMinor.toString()
+        versionProps['VERSION_BUG_FIXES'] = versionBugFixes.toString()
+        versionProps['VERSION_BUILD'] = versionBuild.toString()
+        versionProps['VERSION_NUMBER'] = versionNumber.toString()
+
+        versionProps.store(versionPropsFile.newWriter(), null)
+
+        defaultConfig {
+            applicationId "io.centrilliontech.suprinya"
+            minSdkVersion 15
+            targetSdkVersion 28
+            versionCode versionNumber
+            versionName versionStringName
+            testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+            multiDexEnabled true
+        }
+
+        applicationVariants.all { variant ->
+            variant.outputs.each { output ->
+                //def fileNaming = "apk/RELEASES"
+                def outputFile = output.outputFileName
+                if (outputFile != null && outputFile.endsWith('.apk')) {
+                    //def name = "${fileNaming}-${versionMajor}.${versionMinor}.${versionPatch}-${outputFile}"
+                    def name = "${outputFile}"
+                    output.outputFileName = name
+                }
+            }
+        }
+
+    } else {
+        throw new GradleException("Could not read version.properties!")
     }
+
     buildTypes {
         debug {
             testCoverageEnabled = true

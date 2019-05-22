@@ -51,6 +51,9 @@ before_install:
   - touch $HOME/.android/repositories.cfg
   - yes | sdkmanager "platforms;android-$ANDROID_API_LEVEL"
   - yes | sdkmanager "build-tools;$ANDROID_BUILD_TOOLS_VERSION"
+  - gem update --system
+  - gem install fastlane --no-rdoc --no-ri --no-document --quiet
+  - pip install --user awscli
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -98,6 +101,12 @@ jobs:
         - ./gradlew assembleApiDebugAndroidTest
         - gcloud firebase test android run --type instrumentation --app app/build/outputs/apk/$BUILD_FLAVOR/debug/app-$BUILD_FLAVOR-debug.apk --test app/build/outputs/apk/androidTest/api/debug/app-api-debug-androidTest.apk --device model=$FIREBASE_DEVICE_MODEL,version=$FIREBASE_DEVICE_VERSION
       name: "Firebase Test Lab - Instrumentation Tests"
+    - script: './configure_aws.sh
+               aws s3 cp s3://ct-android-ci-cd-test/keystore.jks keystore.jks;
+               ls;
+               fastlane alpha KEYSTORE_ALIAS:$KEYSTORE_ALIAS  KEYSTORE_PASSWORD:$KEYSTORE_PASSWORD KEYSTORE_ALIAS_PASSWORD:$KEYSTORE_ALIAS_PASSWORD;
+              fi'
+      name: "Run Fastlane"
 
   #script:
   #- ./gradlew clean test

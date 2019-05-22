@@ -1,0 +1,52 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:android)
+
+platform :android do
+
+  desc "Builds the debug code"
+  lane :buildDebug do
+    gradle(task: "assembleDebug")
+  end
+
+  desc "Builds and test"
+  lane :test do
+    gradle(task: "test")
+  end
+
+  desc "Builds and release alpha"
+  lane :alpha do |options|
+    gradle(task: 'assemble',
+           flavor: "api",
+           build_type: 'release',
+           properties: {
+              "android.injected.signing.store.file" => "keystore.jks",
+              "android.injected.signing.store.password" => options[:KEYSTORE_PASSWORD] ,
+              "android.injected.signing.key.alias" => options[:KEYSTORE_ALIAS],
+              "android.injected.signing.key.password" => options[:KEYSTORE_ALIAS_PASSWORD],
+                       })
+    supply(track: "alpha",
+           package_name: "io.centrilliontech.suprinya",
+           apk: "app/build/outputs/apk/api/release/app-api-release.apk")
+  end
+
+  desc "Builds and release beta"
+  lane :beta do
+    gradle(task: 'assemble',flavor: "api",  build_type: 'release')
+    upload_to_play_store(track: 'beta')
+  end
+
+end
