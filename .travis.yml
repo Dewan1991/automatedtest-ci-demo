@@ -104,8 +104,9 @@ jobs:
         #      name: "Firebase Test Lab - Instrumentation Tests"
     - script:
         - ./configure_aws.sh
-        - aws s3 cp s3://$AWS_BUCKET_NAME/keystore.jks /app/keystore.jks
+        - aws s3 cp s3://$AWS_BUCKET_NAME/keystore.jks keystore.jks
         - ls
+        - cp keystore.jks app
         - fastlane alpha KEYSTORE_ALIAS:$KEYSTORE_ALIAS  KEYSTORE_PASSWORD:$KEYSTORE_PASSWORD KEYSTORE_ALIAS_PASSWORD:$KEYSTORE_ALIAS_PASSWORD;
       name: "Run Fastlane - Builds and release alpha"
   #    - script: fastlane test
