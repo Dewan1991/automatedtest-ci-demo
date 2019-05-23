@@ -27,6 +27,19 @@ platform :android do
     gradle(task: "test")
   end
 
+  desc "Generate signed apk"
+  lane :apk do |options|
+    gradle(task: 'assemble',
+             flavor: "api",
+             build_type: 'release',
+             properties: {
+                "android.injected.signing.store.file" => "keystore.jks",
+                "android.injected.signing.store.password" => options[:KEYSTORE_PASSWORD] ,
+                "android.injected.signing.key.alias" => options[:KEYSTORE_ALIAS],
+                "android.injected.signing.key.password" => options[:KEYSTORE_ALIAS_PASSWORD],
+                         })
+  end
+
   desc "Builds and release alpha"
   lane :alpha do |options|
     gradle(task: 'assemble',

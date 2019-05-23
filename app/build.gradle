@@ -10,6 +10,8 @@ android {
     compileSdkVersion 28
     buildToolsVersion "28.0.3"
 
+    def currentFlavor
+
     //region setVersion
     def versionPropsFile = file('version.properties')
     if (versionPropsFile.canRead()) {
@@ -55,7 +57,7 @@ android {
 
         applicationVariants.all { variant ->
             variant.outputs.each { output ->
-                //def fileNaming = "apk/RELEASES"
+                currentFlavor = "${variant.baseName}"
                 def outputFile = output.outputFileName
                 if (outputFile != null && outputFile.endsWith('.apk')) {
                     //def name = "${fileNaming}-${versionMajor}.${versionMinor}.${versionPatch}-${outputFile}"
