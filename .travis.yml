@@ -17,7 +17,7 @@ env:
     - ANDROID_BUILD_TOOLS_VERSION=28.0.3
     - ANDROID_ABI=armeabi-v7a
     - BUILD_FLAVOR_UPPER=Api
-    - BUILD_FLAVOR=$currentFlavor
+    - BUILD_FLAVOR=api
     - FIREBASE_PROJECT_NAME=automatedtest-ci-demo
     - FIREBASE_KEY_FILE=automatedtest-ci-demo-firebase-adminsdk-iwoq0-659c2cbb4f.json
     - FIREBASE_SERVICE_ACCOUNT=firebase-adminsdk-iwoq0@automatedtest-ci-demo.iam.gserviceaccount.com
@@ -99,8 +99,8 @@ jobs:
         - gcloud services enable toolresults.googleapis.com
       script:
         - ./gradlew assemble$BUILD_FLAVOR_UPPERDebug
-        - ./gradlew assembleApiDebugAndroidTest
-        - gcloud firebase test android run --type instrumentation --app app/build/outputs/apk/$BUILD_FLAVOR/debug/app-$BUILD_FLAVOR-debug.apk --test app/build/outputs/apk/androidTest/api/debug/app-api-debug-androidTest.apk --device model=$FIREBASE_DEVICE_MODEL,version=$FIREBASE_DEVICE_VERSION
+        - ./gradlew assemble$BUILD_FLAVOR_UPPERDebugAndroidTest
+        - gcloud firebase test android run --type instrumentation --app app/build/outputs/apk/$BUILD_FLAVOR/debug/app-$BUILD_FLAVOR-debug.apk --test app/build/outputs/apk/androidTest/$BUILD_FLAVOR/debug/app-api-debug-androidTest.apk --device model=$FIREBASE_DEVICE_MODEL,version=$FIREBASE_DEVICE_VERSION
       name: "Firebase Test Lab - Instrumentation Tests"
     - script:
         - ./configure_aws.sh
