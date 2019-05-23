@@ -9,17 +9,13 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 28
     buildToolsVersion "28.0.3"
+
+    //region setVersion
     def versionPropsFile = file('version.properties')
     if (versionPropsFile.canRead()) {
         Properties versionProps = new Properties()
 
         versionProps.load(new FileInputStream(versionPropsFile))
-
-        /*def value = 0
-        def runTasks = gradle.startParameter.taskNames
-        if ('assemble' in runTasks || 'assembleRelease' in runTasks || 'aR' in runTasks) {
-            value = 1
-        }*/
 
         def versionMajor = 1
         def versionMinor = 0
@@ -33,10 +29,9 @@ android {
 
         def versionStringName = "${versionMajor}.${versionMinor}.${versionBugFixes}"
 
-        versionMinor = versionMinor.toString().padLeft( 2, '0' )
-        versionBuild = versionBuild.toString().padLeft( 2, '0' )
-        versionBugFixes = versionBugFixes.toString().padLeft( 2, '0' )
-        versionBuild = versionBuild.toString().padLeft( 2, '0' )
+        versionMinor = formatVersion(versionMinor)
+        versionBugFixes = formatVersion(versionBugFixes)
+        versionBuild = formatVersion(versionBuild)
 
         def versionNumber = "${versionMajor}${versionMinor}${versionBugFixes}${versionBuild}".toInteger()
 
@@ -73,6 +68,7 @@ android {
     } else {
         throw new GradleException("Could not read version.properties!")
     }
+    //endregion
 
     buildTypes {
         debug {
@@ -83,6 +79,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
     flavorDimensions "source"
     productFlavors {
         api {
@@ -97,17 +94,23 @@ android {
             proguardFile 'proguard-rules.pro'
         }
     }
+
+    signingConfigs {
+        release {
+            storeFile file("keystore.jks")
+        }
+    }
+
     testOptions.unitTests.all {
         testLogging {
             events "passed", "skipped", "failed"
             exceptionFormat "full"
         }
     }
-    signingConfigs {
-        release {
-            storeFile file("keystore.jks")
-        }
-    }
+}
+
+static def formatVersion(int ver) {
+    return ver.toString().padLeft(2, '0')
 }
 
 dependencies {
