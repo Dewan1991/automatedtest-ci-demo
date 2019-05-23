@@ -17,7 +17,7 @@ env:
     - ANDROID_BUILD_TOOLS_VERSION=28.0.3
     - ANDROID_ABI=armeabi-v7a
     - BUILD_FLAVOR_UPPER=Api
-    - BUILD_FLAVOR=api
+    - BUILD_FLAVOR=${variant.baseName}
     - FIREBASE_PROJECT_NAME=automatedtest-ci-demo
     - FIREBASE_KEY_FILE=automatedtest-ci-demo-firebase-adminsdk-iwoq0-659c2cbb4f.json
     - FIREBASE_SERVICE_ACCOUNT=firebase-adminsdk-iwoq0@automatedtest-ci-demo.iam.gserviceaccount.com
@@ -86,22 +86,22 @@ jobs:
         #        - adb shell input keyevent 82 &
         #      script: ./gradlew connectedApiDebugAndroidTest --stacktrace
         #      name: "Instrumentation Tests -  API - MainActivity"   # names the third Tests stage job
-        #    - before_script:
-        #        # gcloud
-        #        - gcloud version || true
-        #        - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf $HOME/google-cloud-sdk; export CLOUDSDK_CORE_DISABLE_PROMPTS=1; curl https://sdk.cloud.google.com | bash; fi
-        #        # Add gcloud to $PATH
-        #        - source /home/travis/google-cloud-sdk/path.bash.inc
-        #        - gcloud version
-        #        # Add gcloud auth
-        #        - gcloud auth activate-service-account $FIREBASE_SERVICE_ACCOUNT --key-file=$FIREBASE_KEY_FILE --project=$FIREBASE_PROJECT_NAME
-        #        # Add gcloud services enable
-        #        - gcloud services enable toolresults.googleapis.com
-        #      script:
-        #        - ./gradlew assemble$BUILD_FLAVOR_UPPERDebug
-        #        - ./gradlew assembleApiDebugAndroidTest
-        #        - gcloud firebase test android run --type instrumentation --app app/build/outputs/apk/$BUILD_FLAVOR/debug/app-$BUILD_FLAVOR-debug.apk --test app/build/outputs/apk/androidTest/api/debug/app-api-debug-androidTest.apk --device model=$FIREBASE_DEVICE_MODEL,version=$FIREBASE_DEVICE_VERSION
-        #      name: "Firebase Test Lab - Instrumentation Tests"
+    - before_script:
+        # gcloud
+        - gcloud version || true
+        - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf $HOME/google-cloud-sdk; export CLOUDSDK_CORE_DISABLE_PROMPTS=1; curl https://sdk.cloud.google.com | bash; fi
+        # Add gcloud to $PATH
+        - source /home/travis/google-cloud-sdk/path.bash.inc
+        - gcloud version
+        # Add gcloud auth
+        - gcloud auth activate-service-account $FIREBASE_SERVICE_ACCOUNT --key-file=$FIREBASE_KEY_FILE --project=$FIREBASE_PROJECT_NAME
+        # Add gcloud services enable
+        - gcloud services enable toolresults.googleapis.com
+      script:
+        - ./gradlew assemble$BUILD_FLAVOR_UPPERDebug
+        - ./gradlew assembleApiDebugAndroidTest
+        - gcloud firebase test android run --type instrumentation --app app/build/outputs/apk/$BUILD_FLAVOR/debug/app-$BUILD_FLAVOR-debug.apk --test app/build/outputs/apk/androidTest/api/debug/app-api-debug-androidTest.apk --device model=$FIREBASE_DEVICE_MODEL,version=$FIREBASE_DEVICE_VERSION
+      name: "Firebase Test Lab - Instrumentation Tests"
     - script:
         - ./configure_aws.sh
         - aws s3 cp s3://$AWS_BUCKET_NAME/keystore.jks keystore.jks
