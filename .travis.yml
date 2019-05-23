@@ -16,8 +16,6 @@ env:
     - ANDROID_API_LEVEL=28
     - ANDROID_BUILD_TOOLS_VERSION=28.0.3
     - ANDROID_ABI=armeabi-v7a
-    - BUILD_FLAVOR_UPPER=Api
-    - BUILD_FLAVOR=api
     - FIREBASE_PROJECT_NAME=automatedtest-ci-demo
     - FIREBASE_KEY_FILE=automatedtest-ci-demo-firebase-adminsdk-iwoq0-659c2cbb4f.json
     - FIREBASE_SERVICE_ACCOUNT=firebase-adminsdk-iwoq0@automatedtest-ci-demo.iam.gserviceaccount.com
@@ -74,8 +72,8 @@ before_script: chmod +x gradlew
 jobs:
   include:
     - stage: "Tests"                                        # naming the Tests stage
-      name: "Unit Tests"                              # names the first Tests stage job
-      script: ./gradlew test$BUILD_FLAVOR_UPPERDebugUnitTest --stacktrace
+      name: "Unit Tests - API"                              # names the first Tests stage job
+      script: ./gradlew testApiDebugUnitTest --stacktrace
         #    - script: ./gradlew testMockDebugUnitTest --stacktrace
         #      name: "Unit Tests - MOCK"                             # names the second Tests stage job
         #    - before_script:
@@ -98,10 +96,10 @@ jobs:
         # Add gcloud services enable
         - gcloud services enable toolresults.googleapis.com
       script:
-        - ./gradlew assemble$BUILD_FLAVOR_UPPERDebug
-        - ./gradlew assemble$BUILD_FLAVOR_UPPERDebugAndroidTest
-        - gcloud firebase test android run --type instrumentation --app app/build/outputs/apk/$BUILD_FLAVOR/debug/app-$BUILD_FLAVOR-debug.apk --test app/build/outputs/apk/androidTest/$BUILD_FLAVOR/debug/app-api-debug-androidTest.apk --device model=$FIREBASE_DEVICE_MODEL,version=$FIREBASE_DEVICE_VERSION
-      name: "Firebase Test Lab - Instrumentation Tests"
+        - ./gradlew assembleApiDebug
+        - ./gradlew assembleApiDebugAndroidTest
+        - gcloud firebase test android run --type instrumentation --app app/build/outputs/apk/api/debug/app-api-debug.apk --test app/build/outputs/apk/androidTest/api/debug/app-api-debug-androidTest.apk --device model=$FIREBASE_DEVICE_MODEL,version=$FIREBASE_DEVICE_VERSION
+      name: "Firebase Test Lab - Instrumentation Tests - API"
     - script:
         - ./configure_aws.sh
         - aws s3 cp s3://$AWS_BUCKET_NAME/keystore.jks keystore.jks
