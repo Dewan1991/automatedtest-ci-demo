@@ -26,6 +26,11 @@ Builds the debug code
 fastlane android test
 ```
 Builds and test
+### android apk
+```
+fastlane android apk
+```
+Generate signed apk
 ### android alpha
 ```
 fastlane android alpha

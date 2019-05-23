@@ -52,7 +52,7 @@ platform :android do
               "android.injected.signing.key.password" => options[:KEYSTORE_ALIAS_PASSWORD],
                        })
     supply(track: "alpha",
-           package_name: "io.centrilliontech.suprinya",
+           package_name: "io.centrilliontech.suprinya.automatedtestcidemo",
            apk: "app/build/outputs/apk/api/release/app-api-release.apk")
   end
 

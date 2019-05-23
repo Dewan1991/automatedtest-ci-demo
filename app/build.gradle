@@ -46,7 +46,7 @@ android {
         versionProps.store(versionPropsFile.newWriter(), null)
 
         defaultConfig {
-            applicationId "io.centrilliontech.suprinya"
+            applicationId "io.centrilliontech.suprinya.automatedtestcidemo"
             minSdkVersion 15
             targetSdkVersion 28
             versionCode versionNumber
