@@ -104,7 +104,7 @@ jobs:
         - ./configure_aws.sh
         - aws s3 cp s3://$AWS_BUCKET_NAME/keystore.jks keystore.jks
         - aws s3 cp s3://$AWS_BUCKET_NAME/keystore.properties keystore.properties
-        - aws s3 cp s3://$AWS_BUCKET_NAME/key.json fastlane/key.json
+        - aws s3 cp s3://$AWS_BUCKET_NAME/ct-google-play-service-account.json fastlane/ct-google-play-service-account.json
         - ls
         - cp keystore.jks app
         - fastlane internal KEYSTORE_ALIAS:$KEYSTORE_ALIAS  KEYSTORE_PASSWORD:$KEYSTORE_PASSWORD KEYSTORE_ALIAS_PASSWORD:$KEYSTORE_ALIAS_PASSWORD;
