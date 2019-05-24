@@ -56,6 +56,22 @@ platform :android do
            apk: "app/build/outputs/apk/api/release/app-api-release.apk")
   end
 
+  desc "Builds and release internal"
+    lane :internal do |options|
+      gradle(task: 'assemble',
+             flavor: "api",
+             build_type: 'release',
+             properties: {
+                "android.injected.signing.store.file" => "keystore.jks",
+                "android.injected.signing.store.password" => options[:KEYSTORE_PASSWORD] ,
+                "android.injected.signing.key.alias" => options[:KEYSTORE_ALIAS],
+                "android.injected.signing.key.password" => options[:KEYSTORE_ALIAS_PASSWORD],
+                         })
+      supply(track: "internal",
+             package_name: "th.co.centrilliontech.androidcicddemo",
+             apk: "app/build/outputs/apk/api/release/app-api-release.apk")
+    end
+
   desc "Builds and release beta"
   lane :beta do
     gradle(task: 'assemble',flavor: "api",  build_type: 'release')
