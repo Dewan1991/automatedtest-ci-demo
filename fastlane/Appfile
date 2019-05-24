@@ -1,3 +1,3 @@
-json_key_file("./fastlane/key.json") # Path to the json secret file - Follow https://docs.fastlane.tools/actions/supply/#setup to get one
+json_key_file("./fastlane/ct-google-play-service-account.json") # Path to the json secret file - Follow https://docs.fastlane.tools/actions/supply/#setup to get one
 #json_key_file("/Users/suprinya/Desktop/ct-google-play-service-account.json") # Path to the json secret file - Follow https://docs.fastlane.tools/actions/supply/#setup to get one
 package_name("th.co.centrilliontech.androidcicddemoapi") # e.g. com.krausefx.app
