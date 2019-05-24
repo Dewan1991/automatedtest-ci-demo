@@ -67,9 +67,7 @@ platform :android do
                 "android.injected.signing.key.alias" => options[:KEYSTORE_ALIAS],
                 "android.injected.signing.key.password" => options[:KEYSTORE_ALIAS_PASSWORD],
                          })
-      supply(track: "internal",
-             package_name: "th.co.centrilliontech.androidcicddemoapi",
-             apk: "app/build/outputs/apk/api/release/app-api-release.apk")
+       upload_to_play_store(track: 'internal')
     end
 
   desc "Builds and release beta"
