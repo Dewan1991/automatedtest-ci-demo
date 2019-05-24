@@ -97,10 +97,20 @@ android {
         }
     }
 
-    signingConfigs {
-        release {
-            storeFile rootProject.file("keystore.jks")
+    def keystorePropsFile = rootProject.file('keystore.properties')
+    if (versionPropsFile.canRead()) {
+        Properties keystoreProps = new Properties()
+        keystoreProps.load(new FileInputStream(keystorePropsFile))
+        signingConfigs {
+            release {
+                storeFile rootProject.file("keystore.jks")
+                storePassword keystoreProps['storePassword']
+                keyAlias keystoreProps['keyAlias']
+                keyPassword keystoreProps['keyPassword']
+            }
         }
+    } else {
+        throw new GradleException("Could not read version.properties!")
     }
 
     testOptions.unitTests.all {
