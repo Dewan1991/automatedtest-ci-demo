@@ -1,4 +1,4 @@
-package th.co.centrilliontech.androidcicddemo
+package th.co.centrilliontech.androidcicddemoapi
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click

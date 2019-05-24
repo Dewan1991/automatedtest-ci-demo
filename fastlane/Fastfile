@@ -52,7 +52,7 @@ platform :android do
               "android.injected.signing.key.password" => options[:KEYSTORE_ALIAS_PASSWORD],
                        })
     supply(track: "alpha",
-           package_name: "th.co.centrilliontech.androidcicddemo",
+           package_name: "th.co.centrilliontech.androidcicddemoapi",
            apk: "app/build/outputs/apk/api/release/app-api-release.apk")
   end
 
@@ -68,7 +68,7 @@ platform :android do
                 "android.injected.signing.key.password" => options[:KEYSTORE_ALIAS_PASSWORD],
                          })
       supply(track: "internal",
-             package_name: "th.co.centrilliontech.androidcicddemo",
+             package_name: "th.co.centrilliontech.androidcicddemoapi",
              apk: "app/build/outputs/apk/api/release/app-api-release.apk")
     end
 

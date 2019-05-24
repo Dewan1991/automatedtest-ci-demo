@@ -1,4 +1,4 @@
-package th.co.centrilliontech.androidcicddemo
+package th.co.centrilliontech.androidcicddemoapi
 
 import android.content.Context
 import android.graphics.Color
@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import th.co.centrilliontech.androidcicddemo.glide.GlideApp
+import th.co.centrilliontech.androidcicddemoapi.glide.GlideApp
 
 class ShoesAdapter(private val context: Context) : RecyclerView.Adapter<ShoesAdapter.ViewHolder>() {
     private var mItems: ShoesShelfContainer = ShoesShelfContainer()

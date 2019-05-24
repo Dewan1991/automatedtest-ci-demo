@@ -1,4 +1,4 @@
-package th.co.centrilliontech.androidcicddemo
+package th.co.centrilliontech.androidcicddemoapi
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

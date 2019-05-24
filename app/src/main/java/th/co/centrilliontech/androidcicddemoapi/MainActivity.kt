@@ -1,4 +1,4 @@
-package th.co.centrilliontech.androidcicddemo
+package th.co.centrilliontech.androidcicddemoapi
 
 import android.annotation.SuppressLint
 import android.arch.lifecycle.Observer

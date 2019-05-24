@@ -46,7 +46,7 @@ android {
         versionProps.store(versionPropsFile.newWriter(), null)
 
         defaultConfig {
-            applicationId "th.co.centrilliontech.androidcicddemo"
+            applicationId "th.co.centrilliontech.androidcicddemoapi"
             minSdkVersion 15
             targetSdkVersion 28
             versionCode versionNumber
@@ -86,13 +86,11 @@ android {
     productFlavors {
         api {
             dimension "source"
-            applicationId "th.co.centrilliontech.androidcicddemoapi"
             proguardFile 'proguard-rules.pro'
         }
 
         mock {
             dimension "source"
-            applicationId "th.co.centrilliontech.androidcicddemomock"
             proguardFile 'proguard-rules.pro'
         }
     }
