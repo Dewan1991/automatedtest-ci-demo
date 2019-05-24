@@ -103,7 +103,7 @@ android {
         keystoreProps.load(new FileInputStream(keystorePropsFile))
         signingConfigs {
             release {
-                storeFile rootProject.file("keystore.jks")
+                storeFile file("keystore.jks")
                 storePassword keystoreProps['storePassword']
                 keyAlias keystoreProps['keyAlias']
                 keyPassword keystoreProps['keyPassword']

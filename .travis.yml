@@ -106,7 +106,7 @@ jobs:
         - aws s3 cp s3://$AWS_BUCKET_NAME/keystore.properties keystore.properties
         - aws s3 cp s3://$AWS_BUCKET_NAME/key.json fastlane/key.json
         - ls
-        # - cp keystore.jks app
+        - cp keystore.jks app
         - fastlane apk KEYSTORE_ALIAS:$KEYSTORE_ALIAS  KEYSTORE_PASSWORD:$KEYSTORE_PASSWORD KEYSTORE_ALIAS_PASSWORD:$KEYSTORE_ALIAS_PASSWORD;
       name: "Run Fastlane - Builds and release alpha"
   #    - script: fastlane test
