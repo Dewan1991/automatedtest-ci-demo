@@ -72,11 +72,24 @@ android {
     }
     //endregion
 
+    def keystorePropsFile = rootProject.file('keystore.properties')
+    Properties keystoreProps = new Properties()
+    keystoreProps.load(new FileInputStream(keystorePropsFile))
+    signingConfigs {
+        release {
+            storeFile file("keystore.jks")
+            storePassword keystoreProps['storePassword']
+            keyAlias keystoreProps['keyAlias']
+            keyPassword keystoreProps['keyPassword']
+        }
+    }
+
     buildTypes {
         debug {
             testCoverageEnabled = true
         }
         release {
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -95,21 +108,7 @@ android {
         }
     }
 
-    def keystorePropsFile = rootProject.file('keystore.properties')
-    if (versionPropsFile.canRead()) {
-        Properties keystoreProps = new Properties()
-        keystoreProps.load(new FileInputStream(keystorePropsFile))
-        signingConfigs {
-            release {
-                storeFile file("keystore.jks")
-                storePassword keystoreProps['storePassword']
-                keyAlias keystoreProps['keyAlias']
-                keyPassword keystoreProps['keyPassword']
-            }
-        }
-    } else {
-        throw new GradleException("Could not read version.properties!")
-    }
+
 
     testOptions.unitTests.all {
         testLogging {
