@@ -44,6 +44,14 @@ android:
     - 'android-sdk-preview-license-52d11cd2'
     - 'android-sdk-license-.+'
     - 'google-gdk-license-.+'
+  
+deploy:
+  provider: s3
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  bucket: $AWS_BUCKET_NAME
+  skip_cleanup: true
+  upload-dir: travis-apk-test
 
 before_install:
   - openssl aes-256-cbc -K $encrypted_2e23d3804d07_key -iv $encrypted_2e23d3804d07_iv -in automatedtest-ci-demo-firebase-adminsdk-iwoq0-659c2cbb4f.json.enc -out automatedtest-ci-demo-firebase-adminsdk-iwoq0-659c2cbb4f.json -d
@@ -71,6 +79,11 @@ before_script: chmod +x gradlew
 
 jobs:
   include:
+    - stage: "Builds"
+      name: "Build - API"
+      script: ./gradlew assembleApiDebug --stacktrace
+    - script: ./gradlew assembleMockDebug --stacktrace
+      name: "Build - MOCK"
     - stage: "Tests"                                        # naming the Tests stage
       name: "Unit Tests - API"                              # names the first Tests stage job
       script: ./gradlew testApiDebugUnitTest --stacktrace
@@ -100,15 +113,15 @@ jobs:
 #        - ./gradlew assembleApiDebugAndroidTest
 #        - gcloud firebase test android run --type instrumentation --app app/build/outputs/apk/api/debug/app-api-debug.apk --test app/build/outputs/apk/androidTest/api/debug/app-api-debug-androidTest.apk --device model=$FIREBASE_DEVICE_MODEL,version=$FIREBASE_DEVICE_VERSION
 #      name: "Firebase Test Lab - Instrumentation Tests - API"
-    - script:
-        - ./configure_aws.sh
-        - aws s3 cp s3://$AWS_BUCKET_NAME/keystore.jks keystore.jks
-        - aws s3 cp s3://$AWS_BUCKET_NAME/keystore.properties keystore.properties
-        - aws s3 cp s3://$AWS_BUCKET_NAME/ct-google-play-service-account.json fastlane/ct-google-play-service-account.json
-        - ls
-        - cp keystore.jks app
-        - fastlane internal KEYSTORE_ALIAS:$KEYSTORE_ALIAS  KEYSTORE_PASSWORD:$KEYSTORE_PASSWORD KEYSTORE_ALIAS_PASSWORD:$KEYSTORE_ALIAS_PASSWORD;
-      name: "Run Fastlane - Builds and release alpha"
+#    - script:
+#        - ./configure_aws.sh
+#        - aws s3 cp s3://$AWS_BUCKET_NAME/keystore.jks keystore.jks
+#        - aws s3 cp s3://$AWS_BUCKET_NAME/keystore.properties keystore.properties
+#        - aws s3 cp s3://$AWS_BUCKET_NAME/ct-google-play-service-account.json fastlane/ct-google-play-service-account.json
+#        - ls
+#        - cp keystore.jks app
+#        - fastlane internal KEYSTORE_ALIAS:$KEYSTORE_ALIAS  KEYSTORE_PASSWORD:$KEYSTORE_PASSWORD KEYSTORE_ALIAS_PASSWORD:$KEYSTORE_ALIAS_PASSWORD;
+#      name: "Run Fastlane - Builds and release alpha"
   #    - script: fastlane test
   #      name: "Run Fastlane - test"
 
